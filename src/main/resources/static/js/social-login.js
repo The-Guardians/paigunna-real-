@@ -9,22 +9,29 @@ function loginGoogle() {
             console.log('Login Success');
             console.log(token);
             console.log(currentUser);
+
             document.getElementById('popuplog').style.display = 'none';
             document.getElementById('accountbtn').style.display = 'block';
             document.getElementById('signoutbtn').style.display = 'block';
             document.getElementById('name').style.display = 'block';
-            document.getElementById('tel').style.display = 'block';
             document.getElementById('email').style.display = 'block';
             document.getElementById('logoDefault').style.display = 'none';
             document.getElementById('cusNameAndLogo').style.display = 'block';
+
 
             let user = firebase.auth().currentUser;
 
             if (user != null) {
                 let name = user.displayName;
-                console.log(name);
-                document.getElementById('profileName').innerHTML = name;
+                let email = user.email;
+                let srcimg = user.photoURL;
+                $('#fullName').val(name);
+                $('#mail').val(email);
+                $('#cusLogo').attr('src', srcimg);
+                $('#cusLogo1').attr('src', srcimg);
             }
+
+
 
         }).catch(function (reason) {
         console.log(reason.code);
