@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.paigunna.api</groupId>
+    <artifactId>paigunna-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.10.RELEASE</version>
+        </dependency>
+
+        <!-- Database ****************************************************** -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>1.5.10.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+
+        <!-- Database ****************************************************** -->
+
+        <!-- Omise Payment Gateway ***************************************** -->
+        <dependency>
+            <groupId>co.omise</groupId>
+            <artifactId>omise-java</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+        <!-- Omise Payment Gateway ***************************************** -->
+
+
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+            <version>2.0.3.RELEASE</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <addResources>true</addResources>
+                    <arguments>
+                        <argument>--spring.profiles.active=${spring.profiles.active}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <addResources>true</addResources>
+                    <arguments>
+                        <argument>--spring.profiles.active=${spring.profiles.active}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>cz.habarta.typescript-generator</groupId>
+                <artifactId>typescript-generator-maven-plugin</artifactId>
+                <version>2.1.410</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <jsonLibrary>jackson2</jsonLibrary>
+                            <customTypeMappings>
+                                <mapping>java.util.Date:any</mapping>
+                                <mapping>java.time.LocalDate:any</mapping>
+                                <mapping>java.time.LocalDateTime:any</mapping>
+                                <mapping>java.time.LocalTime:any</mapping>
+                            </customTypeMappings>
+                            <classPatterns>
+                                <pattern>com.paigunna.api.domain.**</pattern>
+                                <pattern>com.paigunna.api.resources.dto.**</pattern>
+                            </classPatterns>
+                            <classes>
+                                <class>org.springframework.data.domain.Page</class>
+                                <class>org.springframework.data.domain.Slice</class>
+                            </classes>
+                            <excludeClassPatterns>
+                                <pattern>**.**_</pattern>
+                            </excludeClassPatterns>
+                            <excludeClasses>
+                                <class>org.springframework.data.domain.Sort</class>
+                                <class>org.springframework.data.domain.Sort</class>
+                                <class>java.io.Serializable</class>
+                                <class>java.lang.Iterable</class>
+                            </excludeClasses>
+                            <outputFile>src/main/web/src/generated-model/model.d.ts</outputFile>
+                            <outputKind>module</outputKind>
+                            <optionalProperties>all</optionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
+
+</project>
