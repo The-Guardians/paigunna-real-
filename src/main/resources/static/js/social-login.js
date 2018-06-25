@@ -29,6 +29,7 @@ function loginGoogle() {
                 $('#mail').val(email);
                 $('#cusLogo').attr('src', srcimg);
                 $('#cusLogo1').attr('src', srcimg);
+                document.getElementById('cusName').innerHTML = name;
             }
 
 
