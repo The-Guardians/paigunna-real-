@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService {
     public User updateUserPos(UserDto userDto) {
         return null;
     }
+
+    @Override
+    public User getUser(String id) {
+        return userRepo.findById(id);
+    }
 }

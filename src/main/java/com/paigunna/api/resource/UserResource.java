@@ -29,7 +29,7 @@ public class UserResource {
 
     @GetMapping("/{id}")
     public User findById(@PathVariable("id") String id){
-        return userRepo.findOne(new Long(id));
+        return userService.getUser(id);
     }
 
     @GetMapping("/service")

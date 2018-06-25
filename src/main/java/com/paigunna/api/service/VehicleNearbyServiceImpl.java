@@ -30,13 +30,16 @@ public class VehicleNearbyServiceImpl implements VehicleNearbyService {
     private UserRepo userRepo;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     public void setDataSource(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override
-    public List<VehicleDto> findByUserIdAndDistanceAndVehicleType(Long userId, Long distance, String vehicleType) {
-        User user = userRepo.findOne(userId);
+    public List<VehicleDto> findByUserIdAndDistanceAndVehicleType(String userId, Long distance, String vehicleType) {
+        User user = userService.getUser(userId);
         if (user.getLat() == null || user.getLng() == null) {
             throw new RuntimeException("Please open gps.");
         }
@@ -48,7 +51,6 @@ public class VehicleNearbyServiceImpl implements VehicleNearbyService {
                 + "       concat(u.fname, ' ', u.lname) as name,  "
                 + "       v.province, "
                 + "       t.rate, "
-                + "       t.name as type_name, "
                 + "       t.description type_desc, "
                 + "       u.distance   "
                 + "          "
@@ -83,7 +85,6 @@ public class VehicleNearbyServiceImpl implements VehicleNearbyService {
                     dto.setLongitude(rs.getDouble("gps_lng"));
                     dto.setId(rs.getLong("id"));
                     dto.setLicense(rs.getString("license"));
-                    dto.setProviderName(rs.getString("name"));
                     dto.setProvince(rs.getString("province"));
                     dto.setRate(rs.getBigDecimal("rate"));
                     dto.setType(rs.getString("type_name"));

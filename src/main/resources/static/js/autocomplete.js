@@ -395,7 +395,7 @@ function setTextOnItemPay() {
         document.getElementById('destination').innerHTML = desName;
         var pay = totalAmount * 100;
         OmiseCard.configure({
-            publicKey: 'pkey_test_5c6hzz4imabmprsj6zy',
+            publicKey: 'pkey_test_5afuh3yxu16m5ih76xb',
             image: 'https://www.picz.in.th/images/2018/05/28/znlQ1k.png',
             amount: pay,
             submitFormTarget: '#from-pay'

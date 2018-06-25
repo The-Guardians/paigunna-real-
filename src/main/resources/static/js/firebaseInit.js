@@ -1,10 +1,10 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDkRbubJ5DZsQPCq-E-0Y8Ke2nl81bOIFE",
-    authDomain: "paigunna-be469.firebaseapp.com",
-    databaseURL: "https://paigunna-be469.firebaseio.com",
-    projectId: "paigunna-be469",
-    storageBucket: "paigunna-be469.appspot.com",
-    messagingSenderId: "512865469025"
+    apiKey: "AIzaSyAGwr9WxsGbt0jQdllJbQANHcQ7FMj7FpU",
+    authDomain: "projectpgn.firebaseapp.com",
+    databaseURL: "https://projectpgn.firebaseio.com",
+    projectId: "projectpgn",
+    storageBucket: "projectpgn.appspot.com",
+    messagingSenderId: "471681704144"
 };
 firebase.initializeApp(config);

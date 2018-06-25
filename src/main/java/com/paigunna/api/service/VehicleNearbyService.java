@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface VehicleNearbyService {
 
-    List<VehicleDto> findByUserIdAndDistanceAndVehicleType(Long userId, Long distance, String vehicleType);
+    List<VehicleDto> findByUserIdAndDistanceAndVehicleType(String userId, Long distance, String vehicleType);
 }

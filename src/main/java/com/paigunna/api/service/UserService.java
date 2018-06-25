@@ -15,4 +15,6 @@ public interface UserService {
     List<User> searchActiveUser(UserDto userDto);
 
     User updateUserPos(UserDto userDto);
+
+    User getUser(String id);
 }

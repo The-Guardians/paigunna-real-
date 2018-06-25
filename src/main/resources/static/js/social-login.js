@@ -1,32 +1,3 @@
-
-var providerFacebook = new firebase.auth.FacebookAuthProvider();
-
-function loginFacebook() {
-    firebase.auth().signInWithPopup(providerFacebook)
-        .then(function (result) {
-            var token = result.credential.accessToken;
-            var user = result.user;
-
-            console.log('Login Success');
-            console.log(token);
-            console.log(user);
-
-        }).catch(function (reason) {
-        console.log(reason.code);
-        console.log(reason.message);
-    });
-}
-
-function logoutFacebook() {
-    firebase.auth().signOut()
-        .then(function () {
-
-            console.log('Signout Successful')
-        }, function (error) {
-            console.log('Signout Failed')
-        });
-}
-
 var providerGoogle = new firebase.auth.GoogleAuthProvider();
 
 function loginGoogle() {
