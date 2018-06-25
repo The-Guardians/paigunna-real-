@@ -409,6 +409,8 @@ function setTextOnItemPay() {
     }
 }
 
+
+
 function clearTextOnItemPay() {
     price1.innerHTML = "";
     textTotalAmount.innerHTML = "";
