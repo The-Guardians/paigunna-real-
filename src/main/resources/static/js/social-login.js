@@ -9,6 +9,14 @@ function loginGoogle() {
             console.log('Login Success');
             console.log(token);
             console.log(currentUser);
+            document.getElementById('popuplog').style.display = 'none';
+            document.getElementById('accountbtn').style.display = 'block';
+            document.getElementById('signoutbtn').style.display = 'block';
+            document.getElementById('name').style.display = 'block';
+            document.getElementById('tel').style.display = 'block';
+            document.getElementById('email').style.display = 'block';
+            document.getElementById('logoDefault').style.display = 'none';
+            document.getElementById('cusNameAndLogo').style.display = 'block';
 
             let user = firebase.auth().currentUser;
 

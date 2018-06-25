@@ -1,4 +1,4 @@
-document.getElementById('popuplogin').style.display = 'block';
+document.getElementById('popuplog').style.display = 'block';
 document.getElementById('accountbtn').style.display = 'none';
 document.getElementById('signoutbtn').style.display = 'none';
 document.getElementById('name').style.display = 'none';
@@ -19,16 +19,6 @@ document.getElementById('notiminibox').style.display = 'none';
 document.getElementById('test').style.display = 'none';
 /*----*/
 
-function login() {
-    document.getElementById('popuplogin').style.display = 'none';
-    document.getElementById('accountbtn').style.display = 'block';
-    document.getElementById('signoutbtn').style.display = 'block';
-    document.getElementById('name').style.display = 'block';
-    document.getElementById('tel').style.display = 'block';
-    document.getElementById('email').style.display = 'block';
-    document.getElementById('logoDefault').style.display = 'none';
-    document.getElementById('cusNameAndLogo').style.display = 'block';
-}
 
 // function statusService() {
 //         $('#toggle-event').change(function() {
